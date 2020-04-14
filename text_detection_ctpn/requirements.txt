@@ -1,0 +1,18 @@
+tqdm==4.11.2
+opencv-python==3.4.0.12
+Shapely==1.6.4.post1
+matplotlib==1.5.3
+numpy==1.14.2
+tensorflow-gpu==1.4.0
+Cython==0.24.1
+ipython==5.1.0
+
+docker run --name tfserving-ctpn \
+--hostname tfserving-ctpn \
+-p 7501:8501 \
+-p 7500:8500 \
+--mount type=bind,source=/opts/python-project/text-detection-ctpn/versions,target=/models/versions \
+-e MODEL_NAME=versions \
+-t \
+tensorflow/serving \
+&

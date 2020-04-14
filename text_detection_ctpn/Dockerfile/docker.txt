@@ -1,0 +1,7 @@
+docker run --name ctpn \
+--hostname django-mysite \
+-tid \
+--restart=on-failure:10 \
+-v /opts/python-project/text-detection-ctpn:/opts/python-project/text-detection-ctpn \
+tensorflow-ctpn \
+python3 /opts/python-project/text-detection-ctpn/main/demo.py

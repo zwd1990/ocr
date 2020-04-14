@@ -1,0 +1,11 @@
+docker run --name tfserving-ocr \
+        --hostname tfserving-ocr \
+        -tid \
+        --restart=on-failure:10 \
+        -v  /etc/timezone:/etc/timezone \
+        -v  /etc/localtime:/etc/localtime \
+        -p 6501:8501 \
+        -p 6500:8502 \
+        --mount type=bind,source=/home/python-project/ocr/tfserving/crnn_ctc,target=/models/crnn_ctc \
+        -e MODEL_NAME=crnn_ctc \
+        -t tensorflow/serving &
