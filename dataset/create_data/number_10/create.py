@@ -61,7 +61,7 @@ def gen_text(data_dir, train_num):
         #将图片转换为数组对象
         img=np.array(img)
         #向图片中加入椒盐噪声，模拟真实环境
-        #img = img_salt_pepper_noise(img, float(random.randint(1,5)/100.0))
+        img = img_salt_pepper_noise(img, float(random.randint(1,5)/100.0))
         #将图片写入文件夹中
         cv2.imwrite(data_dir + str(i+1) + '.jpg',img)
         labels[i+1] = label

@@ -8,7 +8,7 @@ Created on Fri Feb 14 16:42:22 2020
 import tensorflow as tf
 
 #输出层神经元个数
-NUM_CLASSES = 37
+NUM_CLASSES = 11
 #加入slim
 slim = tf.contrib.slim
 

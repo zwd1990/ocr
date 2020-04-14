@@ -10,8 +10,15 @@ ocr--|--crnn_ctc(crnn模型)--|--train.py(模型训练)
      |                      |--inference_crnn_ctc.py(前向传播)
      |                      |--save_model.py(模型ckpt结果转换为tfserving所需格式)
      |                      |--output(结果)
-     |                      |--logs(训练可视化日志)
-     |--dataset(数据集)
+     |                      |--logs(训练可视化日志)--|--number_10
+     |                                              |--english
+     |                                              |--chinese_5990
+     |
+     |--dataset(数据集)--|--create_data
+     |                   |--tfrecord(生成的tfrecord保存的路径)
+     |                   |--images--|--number_10（生成的训练数据的存放处）
+     |                              |--english
+     |                              |--chinese_5990
      |--Dockerfile
      |--text-detection
      |--readme.md
@@ -33,6 +40,10 @@ tensorboard --logdir=./logs --host ***.***.***.***
 运行正常即可看到可视化界面URL，默认端口为6006
 
 ## ocr服务部署
+先拉取tfserving的docker镜像
+```
+docker pull tensorflow/serving
+```
 其中source后面为tfserving格式文件路径
 ```
 docker run --name tfserving-ocr \
