@@ -1,7 +1,10 @@
 # OCR
 
 **\*\*\*\*\* 一个基于CTPN+CRNN的完整OCR项目\*\*\*\*\***
-
+```
+项目详细介绍可参见：https://www.jianshu.com/p/713ffa82b650
+凡对本项目有任何疑惑可加QQ群交流：1081332609
+```
 ## 目录结构：
 
 ```
@@ -53,7 +56,7 @@ docker run --name tfserving-ocr \
         -v  /etc/timezone:/etc/timezone \
         -v  /etc/localtime:/etc/localtime \
         -p 6501:8501 \
-        -p 6500:8502 \
+        -p 6502:8502 \
         --mount type=bind,source=/home/python-project/ocr/tfserving/crnn_ctc,target=/models/crnn_ctc \
         -e MODEL_NAME=crnn_ctc \
         -t tensorflow/serving &
@@ -68,7 +71,7 @@ docker run --name tfserving-ctpn \
         -v  /etc/timezone:/etc/timezone \
         -v  /etc/localtime:/etc/localtime \
         -p 7501:8501 \
-        -p 7500:8502 \
+        -p 7502:8502 \
         --mount type=bind,source=/home/python-project/ocr/tfserving/ctpn,target=/models/ctpn \
         -e MODEL_NAME=ctpn \
         -t tensorflow/serving &
